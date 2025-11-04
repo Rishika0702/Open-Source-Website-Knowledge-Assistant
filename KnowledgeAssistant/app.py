@@ -1,7 +1,6 @@
 import streamlit as st
 import os
 import time
-from dotenv import load_dotenv
 
 from langchain_groq import ChatGroq
 from langchain_community.document_loaders import WebBaseLoader
@@ -12,8 +11,7 @@ from langchain.chains import create_retrieval_chain
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
 
-load_dotenv()
-groq_api_key = os.environ["GROQ_API_KEY"]
+groq_api_key = st.secrets["GROQ_API_KEY"]
 
 st.set_page_config(page_title="AI Chatbot", page_icon="🤖", layout="wide")
 
